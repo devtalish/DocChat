@@ -59,4 +59,9 @@ with gr.Blocks(title="DocChat") as demo:
     run_btn.click(make_chatbot, [files, api_key], [chat_column, chat_engine])
 
 # Launch the Gradio application with the option to share it
-demo.launch(share=False, auth=(auth_username, auth_password))
+demo.launch(
+    server_name="0.0.0.0",
+    server_port=int(os.getenv("PORT", "7860")),
+    share=False,
+    auth=(auth_username, auth_password),
+)

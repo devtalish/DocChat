@@ -51,6 +51,18 @@ This will start a Gradio web application with a chat interface that you can acce
 6. Start chatting with the documents by typing messages in the "Message" textbox.
 7. To clear the chat history, click the "Clear" button.
 
+## Render Deployment
+
+Create a Python web service from this repository in Render with the following settings:
+
+- Runtime: Python; set `PYTHON_VERSION` to a currently supported Python 3.11 patch release.
+- Build command: `pip install poetry==1.8.5 && poetry install --only main --no-interaction`
+- Start command: `poetry run python app.py`
+
+Add `DOCCHAT_USERNAME` and `DOCCHAT_PASSWORD` under the service's Environment settings and mark them secret. Do not commit a `.env` file. Render supplies `PORT` automatically. Users enter their own OpenAI API key in the password-masked app field; the key is passed to the chat engine for that session and is not a required Render environment variable. No health-check path is configured because Gradio authentication protects `/`.
+
+The app does not persist uploaded files, chat history, or Chroma indexes across restarts. Configure durable storage only if the product requirements change to retain those data. OpenAI API usage is billed separately. Check Render's current instance pricing and free-service limits before selecting a production plan.
+
 ## Contact
 
 If you have any questions or need assistance, feel free to contact me at patrik@backyardml.se
