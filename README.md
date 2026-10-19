@@ -27,6 +27,7 @@ To get started with DocChat, follow these steps:
    poetry install
    ```
 5. Obtain an API key from [OpenAI](https://openai.com/).
+6. Configure `DOCCHAT_USERNAME` and `DOCCHAT_PASSWORD` in the environment before starting the app. These credentials protect the Gradio interface.
 
 ## Usage
 
@@ -43,11 +44,12 @@ This will start a Gradio web application with a chat interface that you can acce
 ### Interacting with DocChat
 
 1. Launch the Gradio application by running the app.py script.
-2. Set your OpenAI API key by entering it in the "OpenAI API Key" textbox.
-3. Upload the document you want to chat about using the file uploader.
-4. Click the "Run" button to create a chatbot for the document.
-5. Start chatting with the document! You can type messages in the "Message" textbox, and the chatbot will respond based on the content of the document.
-6. To clear the chat history, click the "Clear" button.
+2. Sign in with the configured DocChat credentials.
+3. Enter your OpenAI API key in the password-masked "OpenAI API Key" textbox.
+4. Upload one or more PDF or TXT documents using the file uploader.
+5. Click the "Run" button to create a chatbot for the uploaded documents.
+6. Start chatting with the documents by typing messages in the "Message" textbox.
+7. To clear the chat history, click the "Clear" button.
 
 ## Contact
 
